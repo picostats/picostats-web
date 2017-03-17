@@ -17,5 +17,5 @@ def deploy():
     run('tar -xzf picostatsnew-web.tar.gz')
     run('rm -rf picostats-web')
     run('mv picostatsnew-web picostats-web')
-    local('rm picostatsnew-web.tar.gz')
+    run('rm picostatsnew-web.tar.gz')
     sudo('supervisorctl reload')
