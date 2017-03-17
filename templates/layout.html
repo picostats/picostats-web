@@ -6,16 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" href="{{ .Conf.AppUrl }}/public/assets/ico/favicon.png">
+        <link rel="shortcut icon" href="{{ .Conf.WebUrl }}/public/assets/img/favicon.ico">
 
-        <title>Home | Free and Open Source Web Analytics Software | PicoStats</title>
+        <title>{{ .Title }} | Free and Open Source Web Analytics Software | PicoStats</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="{{ .Conf.AppUrl }}/public/assets/css/bootstrap.css" rel="stylesheet">
-        <link href="{{ .Conf.AppUrl }}/public/assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{ .Conf.WebUrl }}/public/assets/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ .Conf.WebUrl }}/public/assets/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="{{ .Conf.AppUrl }}/public/assets/css/main.css" rel="stylesheet">
+        <link href="{{ .Conf.WebUrl }}/public/assets/css/main.css" rel="stylesheet">
 
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,74 +36,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a style="margin-top: 3px; display: block; margin-left: 15px;" href="/"><img src="{{ .Conf.AppUrl }}/public/assets/img/logo.png"></a>
+                    <a style="margin-top: 3px; display: block; margin-left: 15px;" href="/" class="skip-active"><img src="{{ .Conf.WebUrl }}/public/assets/img/logo.png"></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right" style="margin-top: 3px;">
-                        <li class="active"><a href="/">HOME</a></li>
+                        <li><a href="/">HOME</a></li>
                         <li><a href="/demo">DEMO</a></li>
-                        <li><a href="/">DOWNLOADS</a></li>
-                        <li><a href="{{ .Conf.AppUrl }}/app/sign-in">SIGN IN</a></li>
+                        <li><a href="/downloads">DOWNLOADS</a></li>
+                        <li><a href="{{ .Conf.AppUrl }}/sign-in">SIGN IN</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
 
-        <div id="headerwrap">
-                <div class="container">
-                        <div class="row centered">
-                                <div class="col-lg-8 col-lg-offset-2">
-                                <h1>Web stats should be <b>simple</b> to use</h1>
-                                <h2>Your Free Web Analytics</h2><br>
-                                <a href="{{ .Conf.AppUrl }}/app/sign-up" class="btn btn-danger btn-lg">Sign Up Now</a>
-                        </div>
-                        </div><!-- row -->
-                </div><!-- container -->
-        </div><!-- headerwrap -->
-
-
-        <div class="container w">
-                <div class="row centered">
-                        <br><br>
-                        <div class="col-lg-4">
-                                <i class="fa fa-pie-chart"></i>
-                                <h4>ANALYTICS SAAS</h4>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
-                        </div><!-- col-lg-4 -->
-
-                        <div class="col-lg-4">
-                                <i class="fa fa-server"></i>
-                                <h4>HOST YOUR OWN</h4>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
-                        </div><!-- col-lg-4 -->
-
-                        <div class="col-lg-4">
-                                <i class="fa fa-life-ring"></i>
-                                <h4>MANAGED SOLUTION</h4>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
-                        </div><!-- col-lg-4 -->
-                </div><!-- row -->
-                <br>
-                <br>
-        </div><!-- container -->        
-
-        <div id="r">
-            <div class="container">
-                <div class="row centered">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <h4>WE ARE STORYTELLERS. BRANDS ARE OUR SUBJECTS. DESIGN IS OUR VOICE.</h4>
-                        <p style="margin-bottom: 0;">We believe ideas come from everyone, everywhere. At BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design.</p>
-                    </div>
-                </div><!-- row -->
-            </div><!-- container -->
-        </div><!-- wrap -->
+        {{ yield }}
 
         <!-- FOOTER -->
         <div id="f">
                 <div class="container">
                         <div class="row centered">
-                                <a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-dribbble"></i></a>
-                
+                            <script type="text/javascript">
+                            document.write("<a href=\"mail" + "to:" + new Array("info","picostats.com").join("@") + "\">" + "<i class=\"fa fa-envelope-o\"></i>" + "</" + "a>");
+                            </script>
+                            <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a><a href="https://github.com/picostats/picostats" target="_blank"><i class="fa fa-github"></i></a>
                         </div><!-- row -->
                 </div><!-- container -->
         </div><!-- Footer -->
@@ -113,6 +68,8 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="{{ .Conf.AppUrl }}/public/assets/js/bootstrap.min.js"></script>
+        <script src="{{ .Conf.WebUrl }}/public/assets/js/bootstrap.min.js"></script>
+        <script src="{{ .Conf.WebUrl }}/public/assets/js/custom.js"></script>
+
     </body>
 </html>

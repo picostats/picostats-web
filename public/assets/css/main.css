@@ -95,7 +95,7 @@ a:after {
 }
 
 .navbar-inverse .navbar-nav > .active > a {
-	background: #ff7878
+	background: #D9514E;
 }
 
 .navbar-inverse .navbar-brand {
@@ -410,3 +410,13 @@ a:after {
 }
 
 
+.nav a:hover {
+    background-color: #D9514E !important;
+}
+
+.dr {
+    background-color: #B9B9B9;
+    padding-top: 70px;
+    padding-bottom: 65px;
+    color: #FFF !important;
+}

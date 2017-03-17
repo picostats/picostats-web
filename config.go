@@ -7,6 +7,7 @@ import (
 )
 
 type Config struct {
+	WebUrl     string `json:"web_url"`
 	AppUrl     string `json:"app_url"`
 	ListenAddr string `json:"listen_addr"`
 	Dev        bool   `json:"dev"`

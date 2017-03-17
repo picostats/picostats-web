@@ -15,6 +15,7 @@ func main() {
 	// Initializes Iris web framework
 	app = initIris()
 
+	app.Get("/", pageView)
 	app.Get("/{page}", pageView)
 
 	app.Listen(conf.ListenAddr)

@@ -5,7 +5,8 @@ import (
 )
 
 type PageData struct {
-	Conf *Config
+	Conf  *Config
+	Title string
 }
 
 func newPageData(ctx *iris.Context) *PageData {
