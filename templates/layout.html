@@ -43,13 +43,24 @@
                         <li><a href="/">HOME</a></li>
                         <li><a href="/demo">DEMO</a></li>
                         <li><a href="/downloads">DOWNLOADS</a></li>
-                        <li><a href="{{ .Conf.AppUrl }}/sign-in">SIGN IN</a></li>
+                        <li><a href="{{ .Conf.AppUrl }}/sign-in">SIGN IN / SIGN UP</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
 
         {{ yield }}
+
+        <div class="dr">
+            <div class="container">
+                <div class="row centered">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h4 style="color: #FFF;"><strong>start tracking visits on your website right away</strong></h4>
+                        <p style="display: block;"><a href="{{ .Conf.AppUrl }}/sign-up" class="btn btn-lg btn-default">Sign Up Now</a></p>
+                    </div>
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- wrap -->
 
         <!-- FOOTER -->
         <div id="f">
