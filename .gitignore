@@ -1,2 +1,5 @@
 picostats-web
 config.json
+fabric/venv
+fabric/venv/*
+fabric/production.json
