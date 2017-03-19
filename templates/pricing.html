@@ -1,0 +1,68 @@
+<div class="gr">
+    <div class="container">
+        <div class="row centered">
+            <div class="col-lg-8 col-lg-offset-2">
+            <h4 style="color: #FFF;"><strong>UPGRADE YOUR PICOSTATS PLAN RIGHT NOW</strong></h4>
+            <p style="margin-bottom: 0px;">GET UNLIMITED NUMBER OF WEBSITES</p>
+        </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!--  bluewrap -->
+
+    <!-- PRICING SECTION -->
+    <div id="dg">
+        <div class="container">
+            <div class="row centered">
+                <h1>Pricing Plans</h1>
+                <br>
+                <div class="col-lg-4 col-lg-push-2">
+                    <!-- START PRICING TABLE -->
+                    <div class="pricing-option">
+                        <div class="pricing-top">
+                            <span class="pricing-edition">Monthly</span>
+                            <span class="price">
+                                <sup>$</sup>
+                                <span class="price-amount">10</span>
+                                <small>&nbsp;&nbsp;/&nbsp;&nbsp;mo</small>
+                            </span>
+                        </div>
+                        <ul>
+                            <li><strong>Unlimited</strong> Number of Websites</li>
+                            <li>Professional Customer Support</li>
+                        </ul>
+{{ if .UserId }}
+                        <a href="https://sites.fastspring.com/doolox/instant/picostatsmonthly?referrer={{ .UserId }}" class="pricing-signup">Purchase</a>
+{{ else }}
+                        <a href="{{ .Conf.AppUrl }}/sign-up" class="pricing-signup">Sign Up</a>
+{{ end }}
+                    </div><!-- /pricing-option -->
+                    <!-- END PRICING TABLE -->
+                </div><!-- /col -->
+                
+                <div class="col-lg-4 col-lg-push-2">
+                    <!-- START PRICING TABLE -->
+                    <div class="pricing-option">
+                        <div class="pricing-top">
+                            <span class="special-label">DISCOUNT!</span>
+                            <span class="pricing-edition">Annually</span>
+                            <span class="price">
+                                <sup>$</sup>
+                                <span class="price-amount">100</span>
+                                <small>&nbsp;&nbsp;/&nbsp;&nbsp;yr</small>
+                            </span>
+                        </div>
+                        <ul>
+                            <li><strong>Unlimited</strong> Number of Websites</li>
+                            <li>Professional Customer Support</li>
+                        </ul>
+{{ if .UserId }}
+                        <a href="https://sites.fastspring.com/doolox/instant/picostatsannually?referrer={{ .UserId }}" class="pricing-signup">Purchase</a>
+{{ else }}
+                        <a href="{{ .Conf.AppUrl }}/sign-up" class="pricing-signup">Sign Up</a>
+{{ end }}
+                    </div><!-- /pricing-option -->
+                    <!-- END PRICING TABLE -->
+                </div><!-- /col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- DG -->

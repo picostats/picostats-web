@@ -43,6 +43,7 @@
                     <ul class="nav navbar-nav navbar-right" style="margin-top: 3px;">
                         <li><a href="/">HOME</a></li>
                         <li><a href="/demo">DEMO</a></li>
+                        <li><a href="/pricing">PRICING</a></li>
                         <li><a href="/downloads">DOWNLOADS</a></li>
                         <li><a href="{{ .Conf.AppUrl }}/sign-in">SIGN IN / SIGN UP</a></li>
                     </ul>
@@ -83,16 +84,20 @@
         <script src="{{ .Conf.WebUrl }}/public/assets/js/bootstrap.min.js"></script>
         <script src="{{ .Conf.WebUrl }}/public/assets/js/custom.js"></script>
 
-        <!-- PicoStats Tracker (www.picostats.com) -->
-        <script>
-            (function(d, w, t, o){w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
-            a=d.createElement('script'),m=d.getElementsByTagName('script')[0];a.async=1;a.src=t;
-            m.parentNode.insertBefore(a,m)})(document, window, '//www.picostats.com/app/public/tracker.js', 'ps');
+    <!-- PicoStats Tracker (www.picostats.com) -->
+    <script>
+        (function(d, w, t, o){w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+        a=d.createElement('script'),m=d.getElementsByTagName('script')[0];a.async=1;a.src=t;
+{{ if .Conf.Dev }}
+        m.parentNode.insertBefore(a,m)})(document, window, '/app/public/tracker_dev.js', 'ps');
+{{ else }}
+        m.parentNode.insertBefore(a,m)})(document, window, '/app/public/tracker.js', 'ps');
+{{ end }}
 
-            ps('create', 'c4ca4238a0b923820dcc509a6f75849b');
-            ps('pageview');
-        </script>
-        <!-- / PicoStats Tracker -->
+        ps('create', 'c4ca4238a0b923820dcc509a6f75849b');
+        ps('pageview');
+    </script>
+    <!-- / PicoStats Tracker -->
 
     </body>
 </html>
