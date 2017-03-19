@@ -18,6 +18,9 @@ func pageView(ctx *iris.Context) {
 	page := ctx.Param("page")
 	if len(page) == 0 {
 		page = "home"
+		pd.Page = ""
+	} else {
+		pd.Page = "/" + page
 	}
 
 	title, ok := titlePrefixes[page]

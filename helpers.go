@@ -11,6 +11,7 @@ type PageData struct {
 	Conf        *Config
 	TitlePrefix string
 	UserId      string
+	Page        string
 }
 
 func newPageData(ctx *iris.Context) *PageData {

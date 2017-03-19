@@ -15,16 +15,18 @@
         <!-- Bootstrap core CSS -->
         <link href="{{ .Conf.WebUrl }}/public/assets/css/bootstrap.css" rel="stylesheet">
         <link href="{{ .Conf.WebUrl }}/public/assets/css/font-awesome.min.css" rel="stylesheet">
-
         <!-- Custom styles for this template -->
         <link href="{{ .Conf.WebUrl }}/public/assets/css/main.css" rel="stylesheet">
-
-
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ .TitlePrefix }}Free and Open Source Web Analytics Software | PicoStats" />
+        <meta property="og:description" content="{{ .TitlePrefix }}Free web analytics software, Open Source web analytics software and web analytics SaaS, all in one simple and easy to use product. Try it today, sign up for free!" />
+        <meta property="og:image" content="https://www.picostats.com/app/public/img/logo-facebook.png" />
+        <meta property="og:url" content="{{ .Conf.WebUrl }}{{ .Page }}" />
     </head>
 
     <body>
