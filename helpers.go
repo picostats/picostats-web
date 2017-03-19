@@ -8,9 +8,9 @@ import (
 )
 
 type PageData struct {
-	Conf   *Config
-	Title  string
-	UserId string
+	Conf        *Config
+	TitlePrefix string
+	UserId      string
 }
 
 func newPageData(ctx *iris.Context) *PageData {

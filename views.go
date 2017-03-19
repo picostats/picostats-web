@@ -8,10 +8,10 @@ import (
 )
 
 func pageView(ctx *iris.Context) {
-	titles := map[string]string{
-		"home":      "Home",
-		"demo":      "Demo",
-		"downloads": "Downloads",
+	titlePrefixes := map[string]string{
+		"home":      "",
+		"demo":      "Demo | ",
+		"downloads": "Downloads | ",
 	}
 
 	pd := newPageData(ctx)
@@ -20,13 +20,13 @@ func pageView(ctx *iris.Context) {
 		page = "home"
 	}
 
-	title, ok := titles[page]
+	title, ok := titlePrefixes[page]
 	var status int
 	if ok {
-		pd.Title = title
+		pd.TitlePrefix = title
 		status = iris.StatusOK
 	} else {
-		pd.Title = "Not Found"
+		pd.TitlePrefix = "Not Found"
 		page = "404"
 		status = iris.StatusNotFound
 	}
@@ -38,7 +38,7 @@ func pageView(ctx *iris.Context) {
 
 func pagePricingView(ctx *iris.Context) {
 	pd := newPageData(ctx)
-	pd.Title = "Pricing"
+	pd.TitlePrefix = "Pricing | "
 	pd.UserId = ctx.Param("userId")
 	ctx.Render("pricing.html", pd)
 }
