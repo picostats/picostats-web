@@ -15,7 +15,28 @@
             <div class="row centered">
                 <h1>Pricing Plans</h1>
                 <br>
-                <div class="col-lg-4 col-lg-push-2">
+
+                <div class="col-lg-4">
+                    <!-- START PRICING TABLE -->
+                    <div class="pricing-option">
+                        <div class="pricing-top">
+                            <span class="pricing-edition">Free</span>
+                            <span class="price">
+                                <sup>$</sup>
+                                <span class="price-amount">0</span>
+                                <small>&nbsp;&nbsp;/&nbsp;&nbsp;mo</small>
+                            </span>
+                        </div>
+                        <ul>
+                            <li>Track <strong>1</strong> Website</li>
+                            <li>Community Support</li>
+                        </ul>
+                        <a href="{{ .Conf.AppUrl }}/sign-up" class="pricing-signup">Sign Up</a>
+                    </div><!-- /pricing-option -->
+                    <!-- END PRICING TABLE -->
+                </div><!-- /col -->
+
+                <div class="col-lg-4">
                     <!-- START PRICING TABLE -->
                     <div class="pricing-option">
                         <div class="pricing-top">
@@ -27,7 +48,7 @@
                             </span>
                         </div>
                         <ul>
-                            <li><strong>Unlimited</strong> Number of Websites</li>
+                            <li>Track <strong>Unlimited</strong> Number of Websites</li>
                             <li>Professional Customer Support</li>
                         </ul>
 {{ if .UserId }}
@@ -39,7 +60,7 @@
                     <!-- END PRICING TABLE -->
                 </div><!-- /col -->
                 
-                <div class="col-lg-4 col-lg-push-2">
+                <div class="col-lg-4">
                     <!-- START PRICING TABLE -->
                     <div class="pricing-option">
                         <div class="pricing-top">
@@ -52,7 +73,7 @@
                             </span>
                         </div>
                         <ul>
-                            <li><strong>Unlimited</strong> Number of Websites</li>
+                            <li>Track <strong>Unlimited</strong> Number of Websites</li>
                             <li>Professional Customer Support</li>
                         </ul>
 {{ if .UserId }}
