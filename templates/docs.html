@@ -113,7 +113,7 @@ stdout_logfile=/root/picostats/picostats.log
 directory=/root/picostats
 autostart=true
 autorestart=true</pre></p>
-            <p>Start Supervisor and make sure that it's running no boot:</p>
+            <p>Start Supervisor and make sure that it's running on boot:</p>
             <p><pre>sudo systemctl start supervisor &amp;&amp; sudo systemctl enable supervisor</pre></p>
             <p>And that's it, we're done, now you can open your public IP address and finish the installation process using the interface.
             Plese notice that this type of installation is not exactly secure since we're installing PicoStats to be running as a root user,
