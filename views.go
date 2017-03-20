@@ -12,6 +12,7 @@ func pageView(ctx *iris.Context) {
 		"home":      "",
 		"demo":      "Demo | ",
 		"downloads": "Downloads | ",
+		"docs":      "Documentation | ",
 	}
 
 	pd := newPageData(ctx)

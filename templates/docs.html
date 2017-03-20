@@ -1,0 +1,123 @@
+<div class="gr">
+    <div class="container">
+        <div class="row centered">
+            <div class="col-lg-8 col-lg-offset-2">
+            <h4 style="color: #FFF;"><strong>READ THE DOCS</strong></h4>
+            <p style="margin-bottom: 0px;">HOW TO INSTALL PICOSTATS ON YOUR OWN SERVER</p>
+        </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!--  bluewrap -->
+
+<div class="container w" style="margin-bottom: 20px;">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h1>PicoStats Installation</h1><br>
+
+            <p>Please notice that this tutorial is intended for advanced technical users who want to
+            install Open Source version of PicoStats on their own server. Everybody else can use our
+            free SaaS version, <a href="/pricing"><strong>PicoStats Premium</strong></a> or contact us (in footer) for a managed solution.</p>
+            <p>There are two ways to install PicoStats on your own server: Docker and full manual installation.
+            Of course, both of them have their pros and cons, but we're letting you decide about that. Both our
+            tutorials are intended for Ubuntu Server.</p>
+
+            <h2>Docker Installation</h2>
+
+            <p>This one is simple. First you need to pull PicoStats Docker image:</p>
+
+            <p><pre>docker pull picostats/picostats</pre></p>
+
+            <p>And then you run it in background:</p>
+            <p><pre>docker run -d picostats/picostats</pre></p>
+            <p>After that, you can use this to get your container's IP address (replace YOUR_CONTAINER_ID with your actual container ID or first few letters of it):</p>
+            <p><pre>docker inspect YOUR_CONTAINER_ID | grep IPAddress\"</pre></p>
+            <p>And now you just open that IP address in your web browser and finish the simple installation process.</p>
+            <p>If you would like to expose that container to the outside network (Internet), which you probably do, then you should run it like this:</p>
+            <p><pre>docker run -d --network=host picostats/picostats</pre></p>
+
+            <h2>Manual Installation</h2>
+
+            <h3>General</h3>
+
+            <p>First we need to install all the packages that we need:</p>
+            <p><pre>sudo apt install nginx postgresql redis-server supervisor</pre></p>
+
+            <h3>PostgreSQL</h3>
+
+            <p>The we login to PostgreSQL server to add user and database and grant permissions:</p>
+            <p><pre>sudo -u postgres psql</pre></p>
+            <p>Create our user (replace MYPASSWORD with your actual password):</p>
+            <p><pre>CREATE USER picostats WITH PASSWORD 'MYPASSWORD';</pre></p>
+            <p>Create the database:</p>
+            <p><pre>CREATE DATABASE picostats;</pre></p>
+            <p>Grant the privileges:</p>
+            <p><pre>GRANT ALL PRIVILEGES ON DATABASE picostats to picostats;</pre></p>
+            <!-- <p>Now we need to add that newly created user to pg_hba.conf file:</p>
+            <p><pre>sudo vim /etc/postgresql/9.5/main/pg_hba.conf</pre></p>
+            <p></p> -->
+
+            <h3>nginx</h3>
+
+            <p>Now let's go with nginx. First we will backup the old default vhost:</p>
+            <p><pre>sudo mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak</pre></p>
+            <p>Create and edit new default vhost:</p>
+            <p><pre>sudo vim /etc/nginx/sites-available/default</pre></p>
+            <p>And this is what we'll add to it:</p>
+            <p><pre>server {
+    listen 80 default_server;
+
+    server_name _;
+
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header  X-Forwarded-Host $remote_addr;
+        proxy_pass http://127.0.0.1:8080;
+    }
+}</pre></p>
+            <p>Restart the service and we can move on to setting up PicoStats:</p>
+            <p><pre>sudo service nginx restart</pre></p>
+
+            <h3>PicoStats</h3>
+
+            <p>First we need to download latest release of PicoStats:</p>
+            <p><pre>wget https://www.picostats.com/binaries/picostats-v1.0b.tar.gz</pre></p>
+            <p>Extract it:</p>
+            <p><pre>tar -xzf picostats-v1.0b.tar.gz</pre></p>
+            <p>Let's rename the directory to remove the version:</p>
+            <p><pre>mv picostats-v1.0b/ picostats</pre></p>
+            <p>Copy dist config file to the actual one:</p>
+            <p><pre>cp picostats/config.json.dist picostats/config.json</pre></p>
+            <p>And edit it. Replace MYPASSWORD with PostgreSQL password you created and generate encryption key
+            with something like pwgen (32 chars long) and put it under encryption_key in your json file.</p>
+            <p><pre>vim picostats/config.json</pre></p>
+            <p>We are ready to test it:</p>
+            <p><pre>cd picostats &amp;&amp; ./picostats</pre></p>
+            <p>You should see something like this:</p>
+            <p><pre>2017/03/20 21:34:54 [db.go] pg: user=picostats password=MYPASSWORD dbname=picostats sslmode=disable</pre></p>
+            <p>And that's it regarding PicoStats.</p>
+            
+            <h3>Supervisor</h3>
+
+            <p>Now we only need to configure Supervisor in order to keep PicoStats running.</p>
+            <p>Create and edit new Supervisor config file:</p>
+            <p><pre>sudo vim /etc/supervisor/conf.d/picostats.conf</pre></p>
+            <p>Add this to it:</p>
+            <p><pre>[program:picostats]
+command=/root/picostats/picostats
+stderr_logfile=/root/picostats/picostats.err
+stdout_logfile=/root/picostats/picostats.log
+directory=/root/picostats
+autostart=true
+autorestart=true</pre></p>
+            <p>Start Supervisor and make sure that it's running no boot:</p>
+            <p><pre>sudo systemctl start supervisor &amp;&amp; sudo systemctl enable supervisor</pre></p>
+            <p>And that's it, we're done, now you can open your public IP address and finish the installation process using the interface.
+            Plese notice that this type of installation is not exactly secure since we're installing PicoStats to be running as a root user,
+            that should be changed and we will do our best to update this tutorial accordingly.</p>
+        </div>
+    </div>
+</div>

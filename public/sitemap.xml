@@ -23,6 +23,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>https://www.picostats.com/docs</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>https://www.picostats.com/app/sign-in</loc>
   <changefreq>daily</changefreq>
 </url>
