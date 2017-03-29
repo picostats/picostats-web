@@ -1,0 +1,18 @@
+#!/bin/bash
+
+mkdir picostatsnew-web
+cp ../picostats-web picostatsnew-web/
+cp -R ../public picostatsnew-web/
+cp -R ../templates picostatsnew-web/
+cp production.json picostatsnew-web/config.json
+tar -czf picostatsnew-web.tar.gz picostatsnew-web/
+rm -rf picostatsnew-web
+scp picostatsnew-web.tar.gz picostats@46.101.254.59:
+
+ssh -t picostats@46.101.254.59 'tar -xzf picostatsnew-web.tar.gz &&
+    rm -rf picostats-web &&
+    mv picostatsnew-web picostats-web &&
+    rm picostatsnew-web.tar.gz &&
+    sudo supervisorctl reload'
+
+rm picostatsnew-web.tar.gz

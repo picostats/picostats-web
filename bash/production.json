@@ -1,0 +1,11 @@
+{
+    "web_url":              "https://www.picostats.com",
+    "app_url":              "https://www.picostats.com/app",
+    "listen_addr":          ":8000",
+    "dev":                  false,
+    "log_sql":              false,
+    "db_type":              "postgres",
+    "db_url":               "user=picostats password=Hohnohyu9ooMaimaing6 dbname=picostats sslmode=disable",
+    "fs_private_key":       "34dcf26ab3106c67ed0a0e79b1bdef90",
+    "fs_private_key2":      "5edc4033f973bd634e441c08e457a27d"
+}
