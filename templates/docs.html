@@ -84,11 +84,11 @@
             <h3>PicoStats</h3>
 
             <p>First we need to download latest release of PicoStats:</p>
-            <p><pre>wget https://www.picostats.com/binaries/picostats-v1.0b.tar.gz</pre></p>
+            <p><pre>wget https://github.com/picostats/picostats/releases/download/v1.0.0beta/picostats-v1.0.0-beta.tar.gz</pre></p>
             <p>Extract it:</p>
-            <p><pre>tar -xzf picostats-v1.0b.tar.gz</pre></p>
-            <p>Let's rename the directory to remove the version:</p>
-            <p><pre>mv picostats-v1.0b/ picostats</pre></p>
+            <p><pre>tar -xzf picostats-v1.0.0-beta.tar.gz</pre></p>
+            <!-- <p>Let's rename the directory to remove the version:</p>
+            <p><pre>mv picostats-v1.0b/ picostats</pre></p> -->
             <p>Copy dist config file to the actual one:</p>
             <p><pre>cp picostats/config.json.dist picostats/config.json</pre></p>
             <p>And edit it. Replace MYPASSWORD with PostgreSQL password you created and generate encryption key
